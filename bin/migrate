@@ -1,0 +1,27 @@
+#!/usr/bin/env php
+<?php
+
+if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
+    require_once __DIR__ . '/../vendor/autoload.php';
+} elseif (file_exists(__DIR__ . '/../../../autoload.php')) {
+    require_once __DIR__ . '/../../../autoload.php';
+}
+
+use Symfony\Component\Console\Application;
+use Migrate\Command\AddEnvCommand;
+use Migrate\Command\CreateCommand;
+use Migrate\Command\DownCommand;
+use Migrate\Command\InitCommand;
+use Migrate\Command\SeedCommand;
+use Migrate\Command\StatusCommand;
+use Migrate\Command\UpCommand;
+
+$application = new Application();
+$application->add(new AddEnvCommand());
+$application->add(new CreateCommand());
+$application->add(new DownCommand());
+$application->add(new InitCommand());
+$application->add(new SeedCommand());
+$application->add(new StatusCommand());
+$application->add(new UpCommand());
+$application->run();
