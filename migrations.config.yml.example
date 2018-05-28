@@ -1,0 +1,4 @@
+main_dir: migrations
+environment_dir: environments
+migrations_dir: data
+changelog_db: changelog.db
